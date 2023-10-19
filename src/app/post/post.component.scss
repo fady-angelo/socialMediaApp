@@ -1,0 +1,219 @@
+@use './../../sass/mixin' as *;
+@use './../../sass/variables' as *;
+
+.post {
+  background-color: $color-white;
+  padding: 10px;
+  border-radius: 7px;
+  margin-block-start: 40px;
+  height: 560px;
+
+  .image {
+    border-radius: 7px;
+    overflow: hidden;
+    margin-block-end: 20px;
+    height: 220px;
+    margin-bottom: 20px;
+  }
+
+  .header {
+    margin-block-end: 20px;
+
+    .personal {
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-inline-end: 10px;
+      }
+
+    }
+
+    .activite {
+      position: relative;
+
+      .love {
+        position: relative;
+
+        .reacts {
+          position: absolute;
+          top: -200%;
+          left: -100%;
+          background-color: $color-primary;
+          display: flex;
+          justify-content: space-between;
+          width: fit-content;
+          padding: 10px;
+          opacity: 0;
+          transform: scaleY(-100%);
+          transition: 0.5s;
+
+          i {
+            cursor: pointer;
+            transition: 0.3s;
+            padding: 0 5px;
+            color: $color-white;
+          }
+
+          i:hover {
+            transform: scale(1.5);
+          }
+
+          &::before {
+            position: absolute;
+            content: '';
+            border-style: solid;
+            border-width: 10px;
+            border-color: $color-primary transparent transparent transparent;
+            bottom: -52%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            transform: translateX(-50%);
+          }
+        }
+      }
+
+      i {
+        font-size: 1.1rem;
+      }
+
+      .like-i,
+      .comment-i {
+        color: $color-primary;
+        cursor: pointer;
+      }
+
+
+    }
+  }
+
+  .comment-area {
+    transform: scale(0);
+    transition: 0.5s;
+    position: relative;
+    z-index: 11111111111;
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+
+    textarea {
+      background-color: white;
+    }
+  }
+
+  .content {
+    margin-block-start: 10px;
+    position: relative;
+  }
+
+  .content::before {
+    position: absolute;
+    content: 'Comment';
+    top: -100%;
+    font-size: 2.5rem;
+    font-weight: 700;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100%);
+    color: $color-overlay;
+  }
+
+  .love:hover .reacts {
+    opacity: 1 !important;
+    transform: scaleY(100%) !important;
+  }
+
+
+}
+
+
+@media (max-width: 1480px) and (min-width: 1250px) {
+  .post {
+    height: 540px;
+
+    .content::before {
+      top: -60%;
+      font-size: 2rem;
+    }
+  }
+}
+
+@media (max-width: 1250px) and (min-width: 1100px) {
+  .post {
+    height: 500px;
+
+    .header {
+      .personal {
+        h6 {
+          font-size: 0.8rem;
+        }
+
+        img {
+          width: 30px;
+          height: 30px;
+        }
+      }
+
+      .activite {
+        span {
+          font-size: 0.9rem;
+        }
+
+        i {
+          font-size: 0.9rem;
+        }
+      }
+    }
+
+    .image {
+      height: 190px;
+    }
+
+    .content::before {
+      top: -60%;
+      font-size: 2rem;
+    }
+  }
+}
+
+@media (max-width: 1100px) and (min-width: 992px) {
+  .post {
+    height: 480px;
+
+    .header {
+      .personal {
+        h6 {
+          font-size: 0.7rem;
+        }
+
+        img {
+          width: 25px;
+          height: 25px;
+        }
+      }
+
+      .activite {
+        span {
+          font-size: 0.8rem;
+        }
+
+        i {
+          font-size: 0.9rem;
+        }
+      }
+    }
+
+    .image {
+      height: 170px;
+    }
+
+    .content::before {
+      top: -50%;
+      font-size: 1.8rem;
+    }
+  }
+}

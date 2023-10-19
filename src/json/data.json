@@ -1,0 +1,149 @@
+{
+  "posts": [
+    {
+      "userName": "Patricia Geurge",
+      "userImg": "assets/profile-1.jpg",
+      "image": "assets/feed-1.jpg",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum reprehenderit sed velit sequi.",
+      "likes": 272,
+      "comments": 165
+    },
+    {
+      "userName": "Mona Gabril",
+      "userImg": "assets/profile-2.jpg",
+      "image": "assets/feed-2.jpg",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum reprehenderit sed velit sequi.",
+      "likes": 322,
+      "comments": 98
+    },
+    {
+      "userName": "Mary Robert",
+      "userImg": "assets/profile-3.jpg",
+      "image": "assets/feed-3.jpg",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum reprehenderit sed velit sequi.",
+      "likes": 122,
+      "comments": 22
+    },
+    {
+      "userName": "Linda William",
+      "userImg": "assets/profile-4.jpg",
+      "image": "assets/feed-4.jpg",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum reprehenderit sed velit sequi.",
+      "likes": 433,
+      "comments": 124
+    },
+    {
+      "userName": "Richard Joseph",
+      "userImg": "assets/profile-5.jpg",
+      "image": "assets/feed-5.jpg",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum reprehenderit sed velit sequi.",
+      "likes": 311,
+      "comments": 233
+    },
+    {
+      "userName": "Jessica Thomas",
+      "userImg": "assets/profile-6.jpg",
+      "image": "assets/feed-6.jpg",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum reprehenderit sed velit sequi.",
+      "likes": 99,
+      "comments": 32
+    },
+    {
+      "userName": "Lisa Daniel",
+      "userImg": "assets/profile-7.jpg",
+      "image": "assets/feed-7.jpg",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum reprehenderit sed velit sequi.",
+      "likes": 101,
+      "comments": 99
+    }
+  ],
+  "stories": [
+    {
+      "userImg": "assets/profile-1.jpg",
+      "storyImg": "assets/story-1.jpg"
+    },
+    {
+      "userImg": "assets/profile-2.jpg",
+      "storyImg": "assets/story-2.jpg"
+    },
+    {
+      "userImg": "assets/profile-3.jpg",
+      "storyImg": "assets/story-3.jpg"
+    },
+    {
+      "userImg": "assets/profile-4.jpg",
+      "storyImg": "assets/story-4.jpg"
+    },
+    {
+      "userImg": "assets/profile-5.jpg",
+      "storyImg": "assets/story-5.jpg"
+    },
+    {
+      "userImg": "assets/profile-6.jpg",
+      "storyImg": "assets/story-6.jpg"
+    },
+    {
+      "userImg": "assets/profile-7.jpg",
+      "storyImg": "assets/feed-1.jpg"
+    },
+    {
+      "userImg": "assets/profile-8.jpg",
+      "storyImg": "assets/feed-2.jpg"
+    },
+    {
+      "userImg": "assets/profile-9.jpg",
+      "storyImg": "assets/feed-3.jpg"
+    },
+    {
+      "userImg": "assets/profile-10.jpg",
+      "storyImg": "assets/feed-4.jpg"
+    }
+  ],
+  "requests": [
+    {
+      "userName": "George Mark",
+      "userImg": "assets/profile-1.jpg",
+      "mutualFriends": "20"
+    },
+    {
+      "userName": "Manal Mohammed",
+      "userImg": "assets/profile-2.jpg",
+      "mutualFriends": "18"
+    },
+    {
+      "userName": "Ronald Roberts",
+      "userImg": "assets/profile-3.jpg",
+      "mutualFriends": "No One"
+    },
+    {
+      "userName": "Maria Jakson",
+      "userImg": "assets/profile-4.jpg",
+      "mutualFriends": "32"
+    },
+    {
+      "userName": "Sandra Revira",
+      "userImg": "assets/profile-5.jpg",
+      "mutualFriends": "10"
+    },
+    {
+      "userName": "Jerry Jordan",
+      "userImg": "assets/profile-6.jpg",
+      "mutualFriends": "2"
+    },
+    {
+      "userName": "Nancy Lee",
+      "userImg": "assets/profile-7.jpg",
+      "mutualFriends": "No One"
+    },
+    {
+      "userName": "Alex Freeman",
+      "userImg": "assets/profile-8.jpg",
+      "mutualFriends": "122"
+    },
+    {
+      "userName": "Joury Ronaldo",
+      "userImg": "assets/profile-9.jpg",
+      "mutualFriends": "33"
+    }
+  ]
+}

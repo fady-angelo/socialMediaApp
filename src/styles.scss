@@ -1,0 +1,37 @@
+@use './sass/variables' as *;
+@use './sass/mixin' as *;
+@import '~@ctrl/ngx-emoji-mart/picker';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  // width: 100vw;
+  // width: 200%;
+
+  overflow-x: hidden;
+}
+
+body {
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  // height: 350px;
+  color: $color-dark;
+  background-color: $color-light;
+  // background-color: red;
+  // width: 100vw;
+  // overflow-x: hidden;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

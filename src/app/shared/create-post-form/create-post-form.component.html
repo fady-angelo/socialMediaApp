@@ -1,0 +1,30 @@
+<div class="create-post">
+  <div class="content">
+    <form [formGroup]="createForm" (ngSubmit)="createBtn()">
+      <div class="textarea">
+        <textarea id="textarea" placeholder="Type a message" type="text" name="textarea" [(ngModel)]="textArea"
+          formControlName="description"></textarea>
+        <button (click)="isEmojiPickerVisible = !isEmojiPickerVisible;" class="emoji">😀</button>
+        <p class="text-danger"
+          *ngIf="createForm.controls['description'].errors?.['required'] && createForm.controls['description'].touched">
+          You Must Enter The
+          Description</p>
+      </div>
+      <br>
+      <emoji-mart class="emoji-mart" *ngIf="isEmojiPickerVisible" (emojiSelect)="addEmoji($event)"
+        title="Choose your emoji"></emoji-mart>
+      <img [src]="base64" alt="" class="w-25">
+      <input type="file" name="" id="inputFile" accept="image/jpg" class="input-file" (change)="getImgPath($event)"
+        class="chooseImg">
+      <p class="text-danger"
+        *ngIf="createForm.controls['image'].errors?.['required'] && createForm.controls['image'].touched">
+        You Must Choose The Image</p>
+
+      <button type="submit" class="create-post-btn rounded-pill" (click)="createPost($event)"
+        [disabled]="createForm.invalid" data-bs-dismiss="modal">
+        Create New Post
+      </button>
+    </form>
+
+  </div>
+</div>

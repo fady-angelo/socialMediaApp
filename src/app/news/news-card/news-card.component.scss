@@ -1,0 +1,45 @@
+@use 'src/sass/variables' as *;
+
+#card {
+  .wrapper {
+    border-radius: $card-border-radius;
+    overflow: hidden;
+    background-color: $color-white;
+    height: 550px;
+
+    .image {
+      height: 280px;
+      overflow: hidden;
+      margin-block-end: 20px;
+
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 220px;
+      padding-inline: 20px;
+
+      h6 {
+        margin-block-end: 30px;
+        font-size: 1.3rem;
+        color: $color-dark;
+        height: 30%;
+      }
+
+      p {
+        color: $color-primary;
+        height: 50%;
+      }
+
+      span {
+        color: $color-dark;
+        font-size: 0.9rem;
+        font-weight: 700;
+        display: block;
+        text-align: end;
+      }
+    }
+  }
+}

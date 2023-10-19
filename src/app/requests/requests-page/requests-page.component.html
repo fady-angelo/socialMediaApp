@@ -1,0 +1,19 @@
+<div id="requests" class="my-3">
+  <div class="wrapper" *ngFor="let req of requests">
+    <div class="left">
+      <div class="image">
+        <img [src]="req.userImg" alt="">
+      </div>
+      <div class="inf">
+        <h6>{{req.userName}}</h6>
+        <div>Mutual Friends: <span>{{req.mutualFriends}}</span></div>
+      </div>
+    </div>
+    <div class="right">
+      <div class="btns">
+        <button class="accept" (click)="acceptFriend($event)">Accept</button>
+        <button class="remove" (click)="removeFriend($event)">Remove</button>
+      </div>
+    </div>
+  </div>
+</div>

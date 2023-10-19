@@ -1,0 +1,196 @@
+<!-- <form #loginForm="ngForm" (ngSubmit)="addData(loginForm.value)">
+  <div class="main">
+    <div class="input-fields">
+      <label for="name">Name</label>
+      <input type="text" ngModel placeholder="Name" id="name" name="name" class="input-field">
+    </div>
+    <div class="input-fields">
+      <label for="email">Email</label>
+      <input type="email" ngModel placeholder="Email" id="email" name="email" class="input-field">
+    </div>
+    <div class="input-fields">
+      <label for="Password">Password</label>
+      <input type="password" ngModel placeholder="Password" id="password" name="password" class="input-field">
+    </div>
+    <button>Add Data</button>
+  </div>
+</form> -->
+
+<div id="signup">
+  <div class="header">
+    <div class="nums">
+      <div class="num active" id="one"><span>1</span></div>
+      <div class="num" id="two"><span>2</span></div>
+      <div class="num" id="three"><span>3</span></div>
+    </div>
+    <div class="line">
+      <span class="half-one"></span>
+      <span class="half-two"></span>
+    </div>
+  </div>
+  <form [formGroup]="registerForm" (ngSubmit)="register(registerForm.value)">
+    <div class="wrapper-form">
+      <div class="personal-card wrapper-card d-flex justify-content-center align-items-center">
+        <div class="w-100">
+          <h3>Personal Details</h3>
+          <div class="mb-4">
+            <input type="text" class="form-control" placeholder="First Name" name="firstName"
+              formControlName="firstName">
+            <div class="alert-container" *ngIf="controlName['firstName'].errors && controlName['firstName'].touched">
+              <p class="text-danger alert-p mt-2 mb-0" *ngIf="controlName['firstName'].errors?.['required']">First name
+                is
+                required
+              </p>
+              <p class="text-danger alert-p mt-2 mb-0" *ngIf="controlName['firstName'].errors?.['pattern']">First name
+                cannot
+                contain numbers or space or another mark</p>
+            </div>
+          </div>
+          <div class="mb-4">
+            <input type="text" class="form-control" placeholder="Last Name" name="lastName" formControlName="lastName">
+            <div class="alert-container" *ngIf="controlName['lastName'].errors && controlName['lastName'].touched">
+              <p class="text-danger alert-p mt-2 mb-0" *ngIf="controlName['lastName'].errors?.['required']">Last name is
+                required</p>
+              <p class="text-danger alert-p mt-2 mb-0" *ngIf="controlName['lastName'].errors?.['pattern']">Last name
+                cannot
+                contain numbers or space or another mark</p>
+            </div>
+          </div>
+          <div class="mb-4">
+            <input type="number" class="form-control" placeholder="Age" name="age" formControlName="age">
+            <div class="alert-container" *ngIf="controlName['age'].errors && controlName['age'].touched">
+              <p class="text-danger alert-p mt-2 mb-0" *ngIf="controlName['age'].errors?.['required']">Age Is Required
+              </p>
+              <p class="text-danger alert-p mt-2 mb-0" *ngIf="controlName['age'].errors?.['min']">Minimum Age Is 16</p>
+              <p class="text-danger alert-p mt-2 mb-0" *ngIf="controlName['age'].errors?.['max']">Maximum Age Is 60</p>
+            </div>
+          </div>
+          <div class="mb-4">
+            <input type="text" class="form-control" placeholder="User Name" name="userName" formControlName="userName">
+            <div class="alert-container" *ngIf="controlName['userName'].errors && controlName['userName'].touched">
+              <p class="text-danger alert-p mt-2 mb-0" *ngIf="controlName['userName'].errors?.['required']">User Name Is
+                Required</p>
+              <p class="text-danger alert-p mt-2 mb-0" *ngIf="controlName['userName'].errors?.['pattern']">User Name Is
+                Not
+                Valid (ex: user.name1)</p>
+            </div>
+          </div>
+          <div class="mb-4 d-flex justify-content-between align-items-center">
+            <div style="width: 49%;">
+              <input type="text" class="form-control" placeholder="Country" name="country" formControlName="country">
+              <div class="alert-container" *ngIf="controlName['country'].errors && controlName['country'].touched">
+                <p class="text-danger alert-p mt-2 mb-0" *ngIf="controlName['country'].errors?.['required']">User Name
+                  Is
+                  Required</p>
+              </div>
+            </div>
+            <div style="width: 49%;">
+              <input type="text" class="form-control" placeholder="City" name="city" formControlName="city">
+              <div class="alert-container" *ngIf="controlName['city'].errors && controlName['city'].touched">
+                <p class="text-danger alert-p mt-2 mb-0" *ngIf="controlName['city'].errors?.['required']">User Name Is
+                  Required</p>
+              </div>
+            </div>
+          </div>
+          <div class="btns">
+            <!-- <button class="next btn" type="button" (click)="goToTwoStep($event)">Next</button> -->
+            <button class="next btn" type="button" (click)="goToTwoStep($event)" [disabled]="controlName['firstName'].errors || controlName['lastName'].errors || controlName['age'].errors || controlName['userName'].errors || controlName['country'].errors
+              || controlName['city'].errors">Next</button>
+          </div>
+          <p class="login-now">Have account ?<a routerLink="/auth/login">Login Now</a></p>
+        </div>
+      </div>
+      <div class="register-card wrapper-card d-flex justify-content-center align-items-center">
+        <div class="w-100">
+          <h3>Register Details</h3>
+          <div class="mb-4">
+            <input type="text" class="form-control" placeholder="Email" name="email" formControlName="email">
+            <div class="alert-container" *ngIf="controlName['email'].errors && controlName['email'].touched">
+              <p class="text-danger alert-p mt-2 mb-0" *ngIf="controlName['email'].errors?.['required']">Email Is
+                Required</p>
+              <p class="text-danger alert-p mt-2 mb-0" *ngIf="controlName['email'].errors?.['pattern']">Email Is Not
+                Valid</p>
+            </div>
+          </div>
+          <div class="mb-4">
+            <input type="password" class="form-control" placeholder="Password" name="password"
+              formControlName="password" (keyup)="checkConfirmPassword()">
+            <div class="alert-container" *ngIf="controlName['password'].errors && controlName['password'].touched">
+              <p class="text-danger alert-p mt-2 mb-0" *ngIf="controlName['password'].errors?.['required']">Password Is
+                Required</p>
+              <p class="text-danger alert-p mt-2 mb-0" *ngIf="controlName['password'].errors?.['pattern']">Password
+                pattern Not True [8-char,A-a-1]</p>
+            </div>
+          </div>
+          <div class="mb-4">
+            <input type="password" class="form-control" placeholder="Confirm Password" name="confirmPassword"
+              formControlName="confirmPassword" (keyup)="checkConfirmPassword()">
+            <div class="alert-container"
+              *ngIf="controlName['confirmPassword'].errors && controlName['confirmPassword'].touched || passwordMath!=true">
+              <p class="text-danger alert-p mt-2 mb-0" *ngIf="controlName['confirmPassword'].errors?.['required']">
+                Password Is
+                Required</p>
+              <p class="text-danger alert-p mt-2 mb-0" *ngIf="passwordMath!=true">Password Is Not Samellar</p>
+            </div>
+          </div>
+          <div class="btns">
+            <button class="btn previous" type="button" (click)="backToOneStep($event)">Previous</button>
+            <!-- <button class="btn next" type="button" (click)="goToThreeStep($event)">Next</button> -->
+            <button class="btn next" type="button" (click)="goToThreeStep($event)"
+              [disabled]="controlName['email'].errors || controlName['password'].errors || controlName['confirmPassword'].errors || passwordMath!=true">Next</button>
+          </div>
+          <p class="login-now">Have account ?<a routerLink="/auth/login">Login Now</a></p>
+        </div>
+      </div>
+      <div class="page-card wrapper-card d-flex justify-content-center align-items-center">
+        <div class="w-100">
+          <h3>Page Details</h3>
+          <div class="mb-4">
+            <input type="number" class="form-control" placeholder="Phone Number" name="phoneNumber"
+              formControlName="phoneNumber">
+            <div class="alert-container"
+              *ngIf="controlName['phoneNumber'].errors && controlName['phoneNumber'].touched">
+              <p class="text-danger alert-p mt-2 mb-0" *ngIf="controlName['phoneNumber'].errors?.['required']">Phone
+                Number Is
+                Required</p>
+            </div>
+          </div>
+          <div>
+          </div>
+          <div class="mb-4">
+            <input type="file" accept="image/jpg" class="form-control" (change)="onFileChange($event)">
+            <div class="cropper-image">
+              <div>
+                <image-cropper [imageChangedEvent]="imgChangeEvent" [aspectRatio]="4/4" [maintainAspectRatio]="true"
+                  [resizeToWidth]="256" format="jpeg" (imageCropped)="imageCropped($event)"
+                  (imageLoaded)="imageLoaded($event)" (cropperReady)="cropperReady()"
+                  (loadImageFailed)="loadImageFailed()">
+                </image-cropper>
+              </div>
+              <div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <h5>Image Preview</h5>
+                  <i class="fa-solid fa-check check-icon" (click)="getImgPath()"></i>
+                </div>
+                <img [src]="croppedImage" class="img-preview mx-2">
+              </div>
+            </div>
+            <div class="alert-container" *ngIf="controlName['userImg'].errors && controlName['userImg'].touched">
+              <p class="text-danger alert-p mt-2 mb-0" *ngIf="controlName['userImg'].errors?.['required']">Choose
+                Picture Is
+                Required</p>
+            </div>
+          </div>
+
+          <div class="btns">
+            <button class="btn previous" type="button" (click)="backToTwoStep($event)">Previous</button>
+            <button class="btn next" type="submit" [disabled]="registerForm.invalid">Register
+              <i class="fas fa-spinner fa-spin ms-1" *ngIf="_auth.fireRegister"></i>
+            </button>
+          </div>
+          <p class="login-now">Have account ?<a routerLink="/auth/login">Login Now</a></p>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

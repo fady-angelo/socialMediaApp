@@ -1,0 +1,47 @@
+<div class="login">
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="login-card card">
+      <h2 class="mb-4">Login</h2>
+      <div class="text-danger">
+        <p>{{errorMessage}}</p>
+      </div>
+      <div class="input mb-4">
+        <label for="email" class="mb-1 ms-1">Email</label>
+        <input type="text" id="email" class="form-control" formControlName="email">
+        <div class="text-danger ms-1 mt-1"
+          *ngIf="loginForm.controls['email'].errors && loginForm.controls['email'].touched">
+          <p class="mb-0" *ngIf="loginForm.controls['email'].errors?.['required']">Email Is Required</p>
+          <!-- <p class="mb-0" *ngIf="loginForm.controls['email'].errors?.['pattern']">Email Not Valid</p> -->
+        </div>
+      </div>
+      <div class="input mb-4">
+        <label for="password" class="mb-1 ms-1">Password</label>
+        <input type="password" id="password" class="form-control" formControlName="password">
+        <div class="text-danger ms-1 mt-1"
+          *ngIf="loginForm.controls['password'].errors && loginForm.controls['password'].touched">
+          <p class="mb-0" *ngIf="loginForm.controls['password'].errors?.['required']">Password Is Required</p>
+          <!-- <p class="mb-0">Password Not True</p> -->
+        </div>
+        <div class="forgotPassword mt-1">
+          <span routerLink="/auth/forgot-password">Forgot Password?</span>
+        </div>
+      </div>
+      <button type="submit" class="btn submit" (click)="login()">Submit
+        <i class="fas fa-spinner fa-spin ms-1" *ngIf="fireLogin"></i>
+      </button>
+      <div class="another-auth">
+        <div class="line"><span>OR</span></div>
+        <button type="button" class="btn googleBtn" (click)="_auth.googleAuth()">
+          <img src="./../../../assets/google-color-svgrepo-com.svg" alt="" class="google-icon">
+        </button>
+        <button type="button" class="btn googleBtn">
+          <img src="./../../../assets/facebook-svgrepo-com.svg" alt="" class="facebook-icon">
+        </button>
+        <button type="button" class="btn googleBtn">
+          <img src="./../../../assets/phone-android-svgrepo-com.svg" alt="" class="phone-icon">
+        </button>
+      </div>
+      <p class="register-now">have not account<a routerLink="/auth/signup">Register Now</a></p>
+    </div>
+  </form>
+</div>

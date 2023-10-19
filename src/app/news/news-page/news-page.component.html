@@ -1,0 +1,19 @@
+<div id="news" class="my-3">
+  <h3>news page</h3>
+  <div class="header">
+    <div class="bg-image">
+      <img id="img" [src]="newsArr[0].urlToImage" alt="">
+      <div class="wrapper">
+        <div class="title" id="title">{{newsArr[0].title}}</div>
+        <div class="description" id="description">{{newsArr[0].description}}</div>
+        <div class="content" id="content">{{newsArr[0].content}}</div>
+        <div class="info">
+          <div class="time" id="time">{{newsArr[0].publishedAt}}</div>
+          <div class="author" id="author">{{newsArr[0].author}}</div>
+        </div>
+      </div>
+      <button class="link"><a [href]="newsArr[0].url" target="_blank" id="link">Go To Source</a></button>
+    </div>
+  </div>
+  <app-news-card (newItemEvent)="getItem($event)"></app-news-card>
+</div>

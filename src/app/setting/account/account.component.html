@@ -1,0 +1,85 @@
+<div class="profile-pic d-flex align-items-center">
+  <!-- <img class="user-profile-img" alt="profile-image" (click)="openPopupImg($event)"> -->
+  <img class="user-profile-img" alt="profile-image">
+  <p class="m-0">Update your profile picture</p>
+  <button type="button" class="ms-auto btn update-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Update
+  </button>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update your profile picture</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="file" accept="image/jpg" class="form-control" (change)="onFileChange($event)">
+          <div class="cropper-image">
+            <div>
+              <image-cropper [imageChangedEvent]="imgChangeEvent" [aspectRatio]="4/4" [maintainAspectRatio]="true"
+                [resizeToWidth]="256" format="jpeg" (imageCropped)="imageCropped($event)"
+                (imageLoaded)="imageLoaded($event)" (cropperReady)="cropperReady()"
+                (loadImageFailed)="loadImageFailed()">
+              </image-cropper>
+            </div>
+            <div>
+              <h5>Image Preview</h5>
+              <img [src]="croppedImage" class="img-preview mx-2">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="updateUserImg()">Save
+            changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="profile-information">
+  <h2>Change User Information Here</h2>
+  <form [formGroup]="updateDataForm" (ngSubmit)="updateData()">
+    <div class="wrapper">
+      <div class="first-name mb-4">
+        <label for="first-name">First Name</label>
+        <input type="text" class="form-control" id="first-name" formControlName="firstName">
+      </div>
+      <div class="last-name mb-4">
+        <label for="last-name">First Name</label>
+        <input type="text" class="form-control" id="last-name" formControlName="lastName">
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="country mb-4">
+        <label for="country">Country</label>
+        <input type="text" class="form-control" id="country" formControlName="country">
+      </div>
+      <div class="city mb-4">
+        <label for="city">City</label>
+        <input type="text" class="form-control" id="city" formControlName="city">
+      </div>
+    </div>
+    <div class="user-name mb-4">
+      <label for="user-name">User Name</label>
+      <input type="text" class="form-control" id="user-name" formControlName="userName">
+    </div>
+    <div class="phone mb-4">
+      <label for="phone">Phone Number</label>
+      <input type="number" class="form-control" id="phone" formControlName="phoneNumber">
+      <!-- <ngx-intl-tel-input [cssClass]="'custom'" [preferredCountries]="preferredCountries"
+                      [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+                      [searchCountryField]="[
+                              SearchCountryField.Iso2,
+                              SearchCountryField.Name
+                            ]" [selectFirstCountry]="true" [selectedCountryISO]="CountryISO.Colombia" [maxLength]="15"
+                      [phoneValidation]="true" [separateDialCode]="separateDialCode"
+                      [numberFormat]="PhoneNumberFormat.National" name="phone" formControlName="phoneNumber">
+                    </ngx-intl-tel-input> -->
+    </div>
+    <button class="btn">Update Information</button>
+  </form>
+</div>
+<!-- <div class="img-popup" id="img-popup" (click)="closePopupImg($event)" data-image="popup">
+  <img class="user-profile-img" alt="profile-image">
+</div> -->

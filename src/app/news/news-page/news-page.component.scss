@@ -1,0 +1,108 @@
+@use 'src/sass/variables' as *;
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+// @use 'src/sass/variables' as *;
+
+#news {
+  h3 {
+    font-family: 'Righteous', cursive;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .header {
+    border-radius: $border-radius;
+    overflow: hidden;
+    border: 2px solid $color-white;
+
+    .bg-image {
+      position: relative;
+      height: 500px;
+
+      img {
+        min-height: 100%;
+        object-fit: cover;
+        width: 100%;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        // background-color: $color-light;
+        background-color: #666;
+        opacity: 0.6;
+        transition: 0.5s;
+      }
+
+      .wrapper {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(0, -50%);
+        z-index: 11;
+        color: $color-white;
+        padding-inline: 30px;
+
+        .title {
+          font-family: 'Righteous', cursive;
+          text-transform: uppercase;
+          font-size: 1.5rem;
+        }
+
+        .description {
+          margin-block-end: 20px;
+        }
+
+        .content {
+          padding: 10px;
+          margin-block-end: 20px;
+        }
+
+        .info {
+          display: flex;
+          justify-content: space-between;
+          align-items: center
+        }
+
+      }
+
+      .link {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 11;
+        color: $color-dark;
+        padding-inline: 30px;
+        background-color: transparent;
+        border: none;
+
+        a {
+          text-decoration: none;
+          color: $color-white;
+          font-weight: 900;
+          font-size: 2rem;
+        }
+      }
+    }
+
+    &:hover .bg-image {
+      &::after {
+        background-color: $color-primary;
+        opacity: 0.8;
+      }
+
+      .wrapper {
+        display: none;
+      }
+
+      .link {
+        display: block;
+      }
+    }
+  }
+}

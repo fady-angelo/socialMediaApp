@@ -1,0 +1,52 @@
+@use 'src/sass/variables' as *;
+@use 'src/sass/mixin' as *;
+
+#requests {
+  .wrapper {
+    padding: $card-padding;
+    background-color: $color-white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .left {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .image {
+        margin-inline-end: 20px;
+
+        img {
+          width: 100px;
+          height: 100px;
+          object-fit: cover;
+        }
+      }
+
+      .inf {
+        div {
+          color: #666;
+        }
+      }
+    }
+
+    .right {
+      .btns {
+        button {
+          @include button;
+
+          &:first-child {
+            margin-inline-end: 10px;
+          }
+        }
+
+
+      }
+    }
+
+    &:not(:last-child) {
+      margin-block-end: 20px;
+    }
+  }
+}

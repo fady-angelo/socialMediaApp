@@ -1,0 +1,19 @@
+<section class="mt-3" id="home">
+  <div class="popup" (click)="closePopup($event)">
+    <div class="story-time"></div>
+    <div class="wrapper">
+      <img src="assets/story-1.jpg" alt="" data-popup="image">
+    </div>
+  </div>
+  <h2>Stories</h2>
+  <swiper class="mySwiper" [config]="config">
+    <ng-template swiperSlide class="wrapper" *ngFor="let item of stories">
+      <div class="box-story" (click)="popupImg($event)" [attr.data-story]="item.storyImg">
+        <img [src]="item.userImg" alt="" class="Profile-img">
+        <div class="live">
+          <i class="fa-solid fa-video"></i>Live
+        </div>
+      </div>
+    </ng-template>
+  </swiper>
+</section>

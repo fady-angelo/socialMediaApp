@@ -1,0 +1,14 @@
+<app-navbar *ngIf="authService.isLoggedIn && showSidebar === true"></app-navbar>
+<div class=" container-fluid">
+  <div class="row">
+    <ng-container *ngIf="authService.isLoggedIn">
+      <div class="col-lg-2 col-md-1" *ngIf="showSidebar === true">
+        <app-sidebar></app-sidebar>
+      </div>
+    </ng-container>
+    <div class="router-outlit col-12"
+      [ngClass]="{'col-lg-10 col-md-11': this.showSidebar === true && this.authService.isLoggedIn}">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+<div id="settings">
+  <div class="row">
+    <div class="col-md-2 p-0">
+      <div class="sidebar" #sidebar>
+        <h2>Friend Zone</h2>
+        <ul class="list-unstyled">
+          <li class="mb-3">
+            <a routerLink="/home" routerLinkActive="active"><i class="fa-solid fa-house pe-2"></i>Home</a>
+          </li>
+          <li class="mb-3">
+            <a routerLink="/setting" routerLinkActive="active"><i class="fa-solid fa-user pe-2"></i>Profile</a>
+          </li>
+          <li class="mb-3">
+            <span (click)="authService.signOut()"><i class="fa-solid fa-arrow-right-from-bracket pe-2"></i>LogOut</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-10 p-0">
+      <nav>
+        <div class="search-input">
+          <input type="text" placeholder="Search" class="form-control">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="social">
+          <div class="icon">
+            <i class="fa-solid fa-bell"></i>
+          </div>
+          <div class="icon">
+            <i class="fa-solid fa-envelope"></i>
+          </div>
+          <div class="icon">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <div class="profile-pic pic-menu" (click)="openMenue()">
+            <img class="user-profile-img" alt="profile-image">
+            <ul class="list-unstyled menu no-active">
+              <li>Home</li>
+              <li>Logout</li>
+            </ul>
+          </div>
+          <h6 class="profile-name"></h6>
+        </div>
+      </nav>
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="wrapper">
+                <div class="box" routerLink="/setting/account" routerLinkActive="active">
+                  <p>Account Settings</p>
+                  <span>Details about your personal information</span>
+                </div>
+                <div class="box" routerLink="/setting/notification" routerLinkActive="active">
+                  <p>Notifications</p>
+                  <span>Control of notification</span>
+                </div>
+                <div class="box" routerLink="/setting/securety" routerLinkActive="active">
+                  <p>Password & Securety</p>
+                  <span>change password and control of securety</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-8 px-5">
+              <router-outlet></router-outlet>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-lg-6 col-md-12" *ngFor="let item of posts">
+    <div class="post">
+      <div class="image">
+        <img [src]="item.image" alt="" class="img-fluid">
+      </div>
+      <div class="header d-flex justify-content-between">
+        <div class="personal d-flex align-items-center">
+          <img [src]="item.userImg" alt="">
+          <h6 class="mb-0">{{item.userName}}</h6>
+        </div>
+        <div class="activite d-flex align-items-center">
+          <div class="love me-3">
+            <i class="fa-solid fa-thumbs-up me-2 like-i"></i>
+            <span>{{item.likes}}</span>
+            <div class="reacts">
+              <i class="fa-solid fa-thumbs-up" (click)="changeReact($event)"></i>
+              <i class="fa-solid fa-heart" (click)="changeReact($event)"></i>
+              <i class="fa-solid fa-face-grin-hearts" (click)="changeReact($event)"></i>
+              <i class="fa-solid fa-face-kiss-wink-heart" (click)="changeReact($event)"></i>
+              <i class="fa-solid fa-hands-clapping" (click)="changeReact($event)"></i>
+            </div>
+          </div>
+
+          <div class="comment">
+            <i class="fa-regular fa-comment-dots me-2 comment-i" (click)="displayComment($event)"></i>
+            <span>{{item.comments}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="comment-area">
+        <div class="form-floating">
+          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+            style="height: 100px; resize: none;"></textarea>
+          <label for="floatingTextarea2">Comments</label>
+          <i class="fa-solid fa-xmark close" (click)="closeTextArea($event)"></i>
+        </div>
+      </div>
+      <div class="content">
+        <p>{{item.description}}</p>
+      </div>
+    </div>
+  </div>
+  <div></div>
+
+</div>
+<div>
+</div>

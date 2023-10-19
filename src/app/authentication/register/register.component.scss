@@ -1,0 +1,206 @@
+@use '/src/sass/variables' as *;
+@use '/src/sass/mixin' as *;
+
+
+#signup {
+  width: 100%;
+  // margin-block: 30px;
+  height: 100vh;
+  overflow: hidden;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+
+
+
+
+  .header {
+    width: 40%;
+    margin-inline: auto;
+    position: relative;
+    margin-block: 20px;
+
+    .nums {
+      @include displayBetween;
+
+      .num {
+        width: 35px;
+        height: 35px;
+        background-color: #FFF;
+        color: #000;
+        @include displayCenter;
+        font-size: 1rem;
+        font-weight: 500;
+        z-index: 3;
+
+        &.active {
+          background-color: hsl(120, 95%, 65%);
+          color: #FFF;
+        }
+      }
+    }
+
+    .line {
+      span {
+        position: absolute;
+        display: inline-block;
+        width: 50%;
+        height: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+        background-color: #FFF;
+      }
+
+      .active-line {
+        background-color: hsl(120, 95%, 65%);
+      }
+
+      .half-one {
+        left: 0;
+      }
+
+      .half-two {
+        right: 0;
+      }
+    }
+  }
+
+  form {
+    // position: relative;
+    width: 100%;
+    @include displayCenter;
+    // position: relative;
+
+
+    .wrapper-form {
+      // position: relative;
+      width: 70%;
+      background-color: #FFF;
+      padding: 30px 30px;
+      height: 85vh;
+      border: 1px solid rgba(0, 0, 0, .200);
+      border-radius: 0.5rem;
+      overflow: hidden;
+      // left: 50%;
+      // left: 50%;
+      // transform: translateX(-50%);
+      // overflow: hidden;
+    }
+
+    .wrapper-card {
+      // background-color: green;
+      // width: 50%;
+      // position: absolute;
+      // top: 0;
+      // left: 0;
+      // overflow: hidden;
+      transition: 0.5s;
+      // padding: $card-padding;
+      height: 80vh;
+
+      h3 {
+        text-align: center;
+        margin-block-end: 20px;
+      }
+
+      p {
+        // margin-block-start: 5px;
+        margin-inline-start: 5px;
+      }
+
+      .btns {
+        width: fit-content;
+        margin-inline: auto;
+
+        .btn {
+          background-color: hsl(120, 95%, 65%);
+          border: 2px solid hsl(120, 95%, 65%);
+          color: #FFF;
+          padding: 5px 30px;
+          transition: 0.4s;
+
+          &:hover {
+            background-color: transparent;
+            color: hsl(120, 95%, 65%);
+          }
+        }
+
+        .previous {
+          margin-inline-end: 20px;
+        }
+      }
+
+      .login-now {
+        text-align: center;
+        margin-block-start: 30px;
+
+        a {
+          margin-inline-start: 10px;
+          text-decoration: underline;
+          color: hsl(120, 95%, 65%);
+          font-weight: 700;
+        }
+      }
+    }
+
+    .personal-card {
+      // left: 0;
+      transform: translate(0, 0) scale(1);
+    }
+
+    .register-card {
+      // left: 110%;
+      transform: translate(120%, -80vh) scale(1);
+    }
+
+    .page-card {
+      //   left: 220%;
+      transform: translate(120%, calc(-80vh * 2)) scale(1);
+    }
+  }
+
+  @layer base {
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
+
+  .cropper-image {
+    margin-top: 20px;
+    // display: flex;
+    justify-content: space-between;
+    align-items: center;
+    display: none;
+
+    image-cropper {
+      width: 200px;
+      height: 200px;
+    }
+
+    .img-preview {
+      width: 200px;
+      height: 200px;
+    }
+
+    h5 {
+      text-align: center;
+    }
+
+    .check-icon {
+      background-color: $color-primary;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  }
+}

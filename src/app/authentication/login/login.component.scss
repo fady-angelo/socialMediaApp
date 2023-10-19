@@ -1,0 +1,93 @@
+@use 'src/sass/variables' as *;
+@use 'src/sass/mixin' as *;
+
+.login {
+  // background: rgb(165, 255, 222);
+  // background: linear-gradient(360deg, rgba(165, 255, 222, 1) 22%, rgba(137, 207, 240, 1) 59%, rgba(217, 155, 255, 1) 100%);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  form {
+    width: 50%;
+  }
+
+  .login-card {
+    background-color: white;
+    padding: 40px 30px;
+
+    .submit {
+      background-color: hsl(120, 95%, 65%);
+      padding: 5px 15px;
+      margin-top: 30px;
+    }
+
+    .register-now {
+      color: #444;
+      text-align: center;
+      margin-top: 20px;
+
+      a {
+        color: $color-danger;
+        margin-left: 10px;
+
+      }
+    }
+
+    .forgotPassword {
+      cursor: pointer;
+    }
+
+    .another-auth {
+      position: relative;
+      margin-block-start: 30px;
+      padding-block-start: 20px;
+      text-align: center;
+
+      .line {
+        position: absolute;
+        width: 80%;
+        height: 1px;
+        background-color: #555;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        @include displayCenter;
+
+        span {
+          display: block;
+          background-color: #FFF;
+          padding: 10px;
+        }
+      }
+
+      button {
+        margin: 20px;
+        padding: 0;
+
+        img {
+          transition: $transition;
+        }
+
+        .google-icon {
+          width: 35px;
+        }
+
+        .facebook-icon {
+          width: 40px;
+        }
+
+        .phone-icon {
+          width: 45px;
+        }
+
+        &:hover img {
+          transform: scale(1.5);
+        }
+      }
+    }
+
+  }
+}

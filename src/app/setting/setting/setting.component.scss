@@ -1,0 +1,258 @@
+@use 'src/sass/variables' as *;
+
+#settings {
+  position: relative;
+
+  .sidebar {
+    background-color: $color-primary;
+    height: 100%;
+    min-height: 100vh;
+    position: relative;
+
+    h2 {
+      font-size: 20px;
+      text-align: center;
+      padding-block: 20px;
+    }
+
+    a,
+    span {
+      color: $color-white;
+      text-decoration: none;
+      padding: 10px 0px 10px 30px;
+      width: 100%;
+      display: block;
+      cursor: pointer;
+    }
+
+    .active {
+      background-color: rgba($color: #fff, $alpha: 0.4);
+    }
+  }
+
+
+  nav {
+    padding: 20px 50px;
+    background-color: white;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .search-input {
+      position: relative;
+      width: 50%;
+
+      i {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 15px;
+        color: $muted-color;
+      }
+    }
+
+    .social {
+      width: 45%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      .pic-menu {
+        ul {
+          display: none;
+        }
+      }
+
+      .profile-pic {
+        width: 40px;
+        height: 40px;
+        background-color: $color-primary;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .icon {
+        border: 1px solid $color-dark;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        i {
+          font-size: 16px;
+        }
+      }
+
+      .dots {
+        font-size: 20px;
+      }
+
+    }
+  }
+
+  .content {
+    margin-top: 20px;
+
+
+
+    .box {
+      background-color: $color-white;
+      border-radius: 7px;
+      padding: 15px 20px;
+      box-shadow: 0 0px 5px 0 rgba(0, 0, 0, 0.1), 0 0px 10px 0 rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      cursor: pointer;
+
+      &.active {
+        border: 1px solid $color-primary;
+      }
+
+      p {
+        font-size: 19px;
+        margin-bottom: 0;
+        padding-bottom: 5px;
+        font-weight: 500;
+      }
+
+      span {
+        color: $color-gray;
+        font-size: 12px;
+      }
+    }
+
+
+  }
+
+  .img-popup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba($color: #000000, $alpha: 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0);
+    opacity: 0;
+    transition: opacity 0.5s;
+
+    img {
+      width: 20%;
+    }
+  }
+}
+
+
+@media (max-width: 767px) {
+  #settings {
+    .sidebar {
+      display: none;
+    }
+
+    nav {
+      padding: 20px 20px;
+
+      .search-input {
+        width: 40%;
+      }
+
+      .social {
+        width: 50%;
+        justify-content: space-evenly;
+        margin-inline-start: auto;
+      }
+    }
+
+    .pic-menu {
+      position: relative;
+
+      ul {
+        overflow: hidden;
+        position: absolute;
+        bottom: -100%;
+        right: 0;
+        border: 3px solid #FFF;
+        background-color: #ddd;
+        margin-bottom: 0;
+        transform: translate(10%, 60%) scaleY(0);
+        transform-origin: top;
+        transition: 0.5s;
+
+        li {
+          padding: 10px 20px;
+
+          &:first-child {
+            border-bottom: 1px solid #000;
+          }
+        }
+      }
+    }
+  }
+
+  .content {
+    .wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  #settings {
+    .content {
+      .wrapper {
+        .box {
+          p {
+            font-size: 16px;
+          }
+
+          span {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 620px) {
+  #settings {
+    .content {
+      .wrapper {
+        .box {
+          padding: 7px 10px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  #settings {
+    .content {
+      .wrapper {
+        .box {
+          padding: 7px 10px;
+
+          p {
+            font-size: 14px;
+            padding-bottom: 0;
+          }
+
+          span {
+            font-size: 7.5px;
+          }
+        }
+      }
+    }
+  }
+}
